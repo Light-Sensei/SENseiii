@@ -301,22 +301,22 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThe Disaster level of this person is 'Darling'."
+        text += "\n\nOh hey my Loid-San, is everything alright?'."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis user is member of 'Onii-Chan'."
+        text += "\n\nAnother Assassin user."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Disaster level of this person is 'Sensei'."
+        text += "\n\n."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Disaster level of this person is 'Senpai'."
+        text += "\n\nShhhhh! youre my secrect Spy."
         disaster_level_present = True
     elif user.id in TIGERS:
-        text += "\n\nThe Disaster level of this person is 'Best Friend'."
+        text += "\n\nBrotherr!! Its been so long right."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Disaster level of this person is 'Friend'."
+        text += "\n\nYoure my Friend of course."
         disaster_level_present = True
     elif user.id == 1492076351:
          text += "\n\nOwner Of The Bot. Queen Of [Light Yagami♡ (夜神月♡)](http://t.me/Itz_Light_Yagami). Bot Name Inspired From 'Shikimori is not just a cutie'."
@@ -355,9 +355,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/ShikimoriXupdates/11"),
+                                "Health", url="https://t.me/Yor_X_updates/5"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/ShikimoriXupdates/9")
+                                "Disaster", url="https://t.me/Yor_X_updates/3")
                         ],
                     ]
                 ),
@@ -373,9 +373,9 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/ShikimoriXupdates/11"),
+                                "Health", url="https://t.me/ShikimoriXupdates/5"),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/ShikimoriXupdates/9")
+                                "Disaster", url="https://t.me/ShikimoriXupdates/3")
                         ],
                     ]
                 ),
@@ -468,7 +468,7 @@ def stats(update, context):
     try:
         update.effective_message.reply_text(
             status
-            + "\n*Shikimori Statistics*:\n"
+            + "\n*Yor Statistics*:\n"
             + "\n".join([mod.__stats__() for mod in STATS])
             + f"\n\n[✦ Support](https://t.me/ShikimoriXsupport) | [✦ Updates](https://t.me/ShikimoriXupdates)\n\n"
             + "╘══「 by [Light Yagami (夜神月)](https://t.me/Itz_Light_yagami) 」\n",
