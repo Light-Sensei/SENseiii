@@ -2,6 +2,7 @@ import html
 import os
 import json
 import importlib
+import random
 import time
 import re
 import sys
@@ -37,6 +38,7 @@ from SiestaRobot import (
 from SiestaRobot.modules import ALL_MODULES
 from SiestaRobot.modules.helper_funcs.chat_status import is_user_admin
 from SiestaRobot.modules.helper_funcs.misc import paginate_modules
+from SiestaRobot.script import MIKU_IMG
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -83,10 +85,10 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-SIESTA_IMG = "https://telegra.ph/file/e9b13862b1e5004af0873.jpg"
+SIESTA_IMG = "https://telegra.ph/file/6d3e3ef24f64fb6e35df0.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @itz_light_yagami \
+ You can support the project by contacting @saint_foire \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -200,8 +202,9 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                text=gs(chat.id, "pm_start_text").format(
+            update.effective_message.reply_photo(
+                random.choice(MIKU_IMG), 
+                caption=gs(chat.id, "pm_start_text").format(                    
                     escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
@@ -209,28 +212,38 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
-                        ],
-                        [
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/Itz_Light_Yagami"),
-                            InlineKeyboardButton(text=gs(chat.id, "chat_grp_button"), url="t.me/night_raiderss"),
+                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_")
                         ],
                         [
-                            InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_button"), url="t.me/shikimoriXrobot?startgroup=new"),
-                        ]
+                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
+                            
+                        
+                        ],
+   
                     ]
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
             )
     else:
         update.effective_message.reply_text(
             text=gs(chat.id, "group_start_text").format(
                 escape_markdown(uptime),
                 ),
+reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "sᴜᴘᴘᴏʀᴛ", url=f"https://t.me//yorXsupport"),
+                            InlineKeyboardButton(
+                                "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/yorxupdates")
+                
+                        ],
+                    ]
+                ),
+            
+
             parse_mode=ParseMode.MARKDOWN
        )
 
@@ -383,13 +396,16 @@ def siesta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="ᴀᴅᴍɪɴs", callback_data="siesta_admin"),
+                        InlineKeyboardButton(text="Admins", callback_data="siesta_admin"),
                         InlineKeyboardButton(text=gs(chat.id, "notes_button"), callback_data="siesta_notes"),
                     ],
                     [
-                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), callback_data="siesta_support"),
-                        InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/Itz_Light_Yagami"),
-                        InlineKeyboardButton(text="ᴄʀᴇᴅɪᴛs", callback_data="siesta_credit"),
+                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), callback_data="t.me/yorXsupport"),
+                        InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
+                    ],
+                    [
+                        InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="https://t.me/yagami_roito"),
+                        InlineKeyboardButton(text=gs(chat.id, "chat_grp_button"), url="https://t.me/mhaprvt                        
                     ],
                     [
                     InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_back"),
@@ -409,16 +425,15 @@ def siesta_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
-                        ],
-                        [
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/Itz_Light_Yagami"),
-                            InlineKeyboardButton(text=gs(chat.id, "chat_grp_button"), url="t.me/night_raiderss"),
+                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_")
                         ],
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/shikimoriXrobot?startgroup=new"),
-                        ]
+                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
+                            
+                        
+                        ],
+   
                     ]
                 ),
                 parse_mode=ParseMode.MARKDOWN,
@@ -459,8 +474,8 @@ def siesta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="https://t.me/ShikimoriXsupport"),
-                        InlineKeyboardButton(text=gs(chat.id, "updates_channel_link_button"), url="https://t.me/ShikimoriXupdates"),
+                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorXsupport"),
+                        InlineKeyboardButton(text=gs(chat.id, "updates_channel_link_button"), url="https://t.me/yorXupdates"),
                     ],
                     [
                         InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
@@ -477,11 +492,7 @@ def siesta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="Light", url="https://github.com/Light-Sensei"),
-                    ],
-                    [
-                        InlineKeyboardButton(text="Itachi", url="https://github.com/Yoriichi-Tsugikuni"),
-                        InlineKeyboardButton(text="Kazutora", url="https://github.com/Nchuuya"),
+                        InlineKeyboardButton(text="Light Yagami", url="https://t.me/Yagami_roito"),
                     ],
                     [
                         InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
@@ -521,16 +532,15 @@ def Source_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
-                        ],
-                        [
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/Itz_Light_Yagami"),
-                            InlineKeyboardButton(text=gs(chat.id, "chat_grp_button"), url="t.me/night_raiderss"),
+                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_")
                         ],
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/shikimoriXrobot?startgroup=new"),
-                        ]
+                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
+                            
+                        
+                        ],
+   
                     ]
                 ),
                 parse_mode=ParseMode.MARKDOWN,
@@ -768,10 +778,10 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 945137470:
+        if OWNER_ID != 1852437466:
             update.effective_message.reply_text(
-                "I'm free for everyone ❤️ If you wanna make me smile, just join"
-                "[My Channel]({})".format(DONATION_LINK),
+                "Am Kind to the nice ones if you want to become nice then join"
+                "[My Channel](https://t.me/mhaprvt)".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
     else:
@@ -817,7 +827,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**[Minna-San Am Alive Again](https://telegra.ph/file/c1e3cced2a4cf3f4243a4.jpg)**""",
+                f"""**[Am Back to my job](https://telegra.ph/file/504b453954329a9cf3d76.jpg)**""",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
