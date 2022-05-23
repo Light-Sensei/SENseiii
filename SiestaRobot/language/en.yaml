@@ -9,9 +9,9 @@ set_chat_lang: "Great, using {} Language it is from now on!"
 
 # PM Text
 pm_start_text: |
-  ────「 sʜɪᴋɪᴍᴏʀɪ ᴍɪᴄᴄʜᴏɴ 」────
+  ────「 ʏᴏʀ ғᴏʀɢᴇʀ 」────
   *ʜᴇʟʟᴏ!! {}-ᴋᴜɴ ❤️*   
-  ♡ ɪ'ᴍ sʜɪᴋɪᴍᴏʀɪ ᴍɪᴄᴄʜᴏɴ ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴘᴏᴡᴇʀғᴜʟ ʀᴏʙᴏᴛ [✨](https://telegra.ph/file/efe659ac340a0b4208dc4.mp4)
+  ♡ ɪ'ᴍ ʏᴏʀ ғᴏʀɢᴇʀ ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴘᴏᴡᴇʀғᴜʟ ʀᴏʙᴏᴛ ✨
   ───────────────────────
   ♡  *sᴇʀᴠᴇʀ ᴜᴘᴛɪᴍᴇ:* `{}`             
   ♡  `{}` *ᴜsᴇʀs, ᴀᴄʀᴏss* `{}` *ᴄʜᴀᴛs.*  
@@ -19,12 +19,12 @@ pm_start_text: |
   ♡ ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴇᴇ ᴍʏ ғᴇᴀᴛᴜʀᴇs.
    
 group_start_text: |
-  *💖 ʏᴏɪɪ!! ɪ'ᴍ sʜɪᴋɪᴍᴏʀɪ ᴍɪᴄᴄʜᴏɴ! ᴀᴍ ʜᴇʀᴇ ᴛᴏ ᴍᴀɴɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀʟʟ ᴏғ ʏᴏᴜʀ ʟᴏᴠᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ*[💕](https://telegra.ph/file/8bddb266c82258ff0a41b.mp4)
+  *💖 ʏᴏɪɪ!! ɪ'ᴍ ʏᴏʀ ғᴏʀɢᴇʀ! ᴀᴍ ʜᴇʀᴇ ᴛᴏ ᴍᴀɴɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀʟʟ ᴏғ ʏᴏᴜʀ ʟᴏᴠᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ*[💕](https://telegra.ph/file/d39a34a01c7b950f62409.jpg)
   
   *ᴀᴄᴛɪᴠᴇ sɪɴᴄᴇ :* `{}`
 
 pm_about_text: |
-  ♥ Hey Darling I'm *Shikimori Micchon*, a powerful group management bot built to help you manage your group easily. ♥ 
+  ♥ Hey Darling I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ♥ 
 
   ♡ I can restrict users.
   ♡ I can greet users with customizable welcome messages and even set a group's rules.
@@ -33,12 +33,11 @@ pm_about_text: |
   ♡ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
   ♡ I check for admins' permissions before executing any command and more stuffs
 
-  _Shikimori licensed under the GNU General Public License v3.0_
-  Click on button bellow to get basic help for Shikimori Micchon Robot.
+
 pm_about_admin_text: |
   *♥ Let's make your group bit effective now ♥*
 
-  Congragulations, Shikimori Micchon Robot now ready to manage your group.
+  Congragulations, Yor Robot now ready to manage your group.
 
   *Admin Tools*
   Basic Admin tools help you to protect and powerup your group.
@@ -53,13 +52,13 @@ pm_about_notes_text: |
   ♡ You can save message/media/audio or anything as notes to get a note simply use # at the beginning of a word
   ♡ You can also set buttons for notes and filters (refer help menu)
 pm_about_support_text: |
-  *♥  Shikimori Micchon Robot support chats ♥*
+  *♥  Yor Robot support chats ♥*
 
   Join My Support Group/Channel for see or report a problem on Shikimori Support.
 pm_about_credit_text: |
-  *♥ Credis for Shikimori Micchon ♥*
+  *♥ Credis for Yor Forger ♥*
 
-  Here Developers Making And Give Inspiration For Made The Shikimori Robot
+  Here Developers Making And Give Inspiration For Made The Yor Robot
 pm_help_text: |
   *♥ Click on the button bellow to get description about specifics command. ♥*
   
@@ -85,7 +84,7 @@ group_settings_text: "ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ᴛʜɪs ᴄʜᴀ
 group_settings_button: "sᴇᴛᴛɪɴɢs"
 
 # PM Button
-add_bot_to_group_button: "♡ ᴀᴅᴅ ꜱʜɪᴋɪᴍᴏʀɪ ᴛᴏ ɢʀᴏᴜᴘ ♡"
+add_bot_to_group_button: "♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡"
 
 
 support_chat_link_button: "ꜱᴜᴘᴘᴏʀᴛ"
@@ -95,9 +94,9 @@ notes_button: "ɴᴏᴛᴇs"
 
 help_button: "ʜᴇʟᴘ"
 back_button: "ʙᴀᴄᴋ"
-about_button: "♡ ᴀʙᴏᴜᴛ sʜɪᴋɪᴍᴏʀɪ ᴍɪᴄᴄʜᴏɴ ♡"
 chat_grp_button: "ᴄʜᴀᴛ ɢʀᴏᴜᴘ"
 darling_button: "ᴅᴀʀʟɪɴɢ"
+more_button: "ᴍᴏʀᴇ"
 
 # MODULES
 admin_help: |
