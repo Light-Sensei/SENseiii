@@ -9,17 +9,16 @@ from SiestaRobot.events import register
 from SiestaRobot import telethn as tbot
 
 
-PHOTO = "https://telegra.ph/file/bd9ce6e2c66833236248d.mp4"
+PHOTO = "https://telegra.ph/file/5fc0fa0316da7ad8ed53a.jpg"
 
 @register(pattern=("/alive"))
 async def awake(event):
-  TEXT = f"**Yo!! [{event.sender.first_name}](tg://user?id={event.sender.id}), I'm Micchon Shikimori.** \n\n"
-  TEXT += "♡ **I'm Working Properly Baka!!** \n\n"
-  TEXT += f"♡ **My Darling : [Light Yagami♡ (夜神月♡)](https://t.me/itz_light_yagami)** \n\n"
+  TEXT = f"**Konnichiwa!! [{event.sender.first_name}](tg://user?id={event.sender.id}), Yor Forger.** \n\n"
+  TEXT += "♡ **I'll be giving my best for your work !!** \n\n"
+  TEXT += f"♡ **Loid-San : [Light Yagami♡ (夜神月♡)](https://t.me/yagami_roito)** \n\n"
   TEXT += f"♡ **Library Version :** `{telever}` \n\n"
   TEXT += f"♡ **Telethon Version :** `{tlhver}` \n\n"
   TEXT += f"♡ **Pyrogram Version :** `{pyrover}` \n\n"
   TEXT += "**Thanks For Adding Me Here ♡**"
-  BUTTON = [[Button.url("ᴜᴘᴅᴀᴛᴇs", "https://t.me/ShikimoriXupdates"), Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/shikimoriXsupport"), 
-                       Button.url("ᴍʏ ᴅᴀʀʟɪɴɢ", "https://t.me/Itz_Light_Yagami")]]
+  BUTTON = [[Button.url("ᴜᴘᴅᴀᴛᴇs", "https://t.me/yorXupdates"), Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/yorXsupport")]]
   await tbot.send_file(event.chat_id, PHOTO, caption=TEXT,  buttons=BUTTON)
