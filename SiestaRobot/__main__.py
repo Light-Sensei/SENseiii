@@ -213,7 +213,6 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_")
                         ],
                         [
                             InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
@@ -237,7 +236,7 @@ reply_markup=InlineKeyboardMarkup(
                             InlineKeyboardButton(
                                 "sᴜᴘᴘᴏʀᴛ", url=f"https://t.me//yorXsupport"),
                             InlineKeyboardButton(
-                                "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/yorxupdates")
+                                "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/yorXupdates")
                 
                         ],
                     ]
@@ -400,12 +399,8 @@ def siesta_about_callback(update, context):
                         InlineKeyboardButton(text=gs(chat.id, "notes_button"), callback_data="siesta_notes"),
                     ],
                     [
-                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), callback_data="t.me/yorXsupport"),
+                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorXsupport"),
                         InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
-                    ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="https://t.me/yagami_roito"),
-                        InlineKeyboardButton(text=gs(chat.id, "chat_grp_button"), url="https://t.me/mhaprvt                        
                     ],
                     [
                     InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_back"),
@@ -425,15 +420,15 @@ def siesta_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
+                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
+                        ],
+                        [
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_")
+                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/yagami_roito"),
                         ],
                         [
                             InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
-                            
-                        
-                        ],
-   
+                        ]
                     ]
                 ),
                 parse_mode=ParseMode.MARKDOWN,
@@ -492,7 +487,11 @@ def siesta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="Light Yagami", url="https://t.me/Yagami_roito"),
+                        InlineKeyboardButton(text="Light Yagami", url="https://t.me/yagami_roito"),
+                    ],
+                    [
+                        InlineKeyboardButton(text="Bonten", url="https://t.me/bonten_community"),
+                        InlineKeyboardButton(text="Kazutora", url="https://t.me/zero-hisoka"),
                     ],
                     [
                         InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
@@ -532,15 +531,15 @@ def Source_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_")
+                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
                         ],
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
-                            
-                        
+                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
+                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/yagami_roito"),
                         ],
-   
+                        [
+                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/yorxprobot?startgroup=new"),
+                        ]
                     ]
                 ),
                 parse_mode=ParseMode.MARKDOWN,
@@ -778,7 +777,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1852437466:
+        if OWNER_ID != 945137470:
             update.effective_message.reply_text(
                 "Am Kind to the nice ones if you want to become nice then join"
                 "[My Channel](https://t.me/mhaprvt)".format(DONATION_LINK),
