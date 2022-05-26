@@ -10,21 +10,21 @@ set_chat_lang: "Great, using {} Language it is from now on!"
 # PM Text
 pm_start_text: |
   ────「 ʏᴏʀ ғᴏʀɢᴇʀ 」────
-  *ʜᴇʟʟᴏ!! {}-ᴋᴜɴ ❤️*   
-  ♡ ɪ'ᴍ ʏᴏʀ ғᴏʀɢᴇʀ ᴀɴ ᴀɴɪᴍᴇ ᴛʜᴇᴍᴇᴅ ᴘᴏᴡᴇʀғᴜʟ ʀᴏʙᴏᴛ ✨
-  ───────────────────────
-  ♡  *sᴇʀᴠᴇʀ ᴜᴘᴛɪᴍᴇ:* `{}`             
-  ♡  `{}` *ᴜsᴇʀs, ᴀᴄʀᴏss* `{}` *ᴄʜᴀᴛs.*  
-  ───────────────────────
-  ♡ ᴄʟɪᴄᴋ ᴛʜᴇ ʜᴇʟᴘ ʙᴜᴛᴛᴏɴ ᴛᴏ sᴇᴇ ᴍʏ ғᴇᴀᴛᴜʀᴇs.
+やあ Kon'ichiwa {} - San!    
+I'm Yor Forger An Anime Themed Powerful & Advanced Group Management Robot
+
+◈  Server Uptime : 3h:7m:06s  
+◈  179782 Users, Across 700 Chats.
+
+➢ Try The Help Buttons Below To Know My Abilities ♡
    
 group_start_text: |
-  *💖 ʏᴏɪɪ!! ɪ'ᴍ ʏᴏʀ ғᴏʀɢᴇʀ! ᴀᴍ ʜᴇʀᴇ ᴛᴏ ᴍᴀɴɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴡɪᴛʜ ᴀʟʟ ᴏғ ʏᴏᴜʀ ʟᴏᴠᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ*[💕](https://telegra.ph/file/d39a34a01c7b950f62409.jpg)
+  Kon'ichiwa Minna, Am still alive protecting youu from the evil[💕](https://telegra.ph/file/d39a34a01c7b950f62409.jpg)
   
-  *ᴀᴄᴛɪᴠᴇ sɪɴᴄᴇ :* `{}`
+  Active Since : `{}`
 
 pm_about_text: |
-  ♥ Hey Darling I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ♥ 
+  ♥ Hoi I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ♥ 
 
   ♡ I can restrict users.
   ♡ I can greet users with customizable welcome messages and even set a group's rules.
