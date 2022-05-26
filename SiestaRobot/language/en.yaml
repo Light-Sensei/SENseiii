@@ -10,13 +10,13 @@ set_chat_lang: "Great, using {} Language it is from now on!"
 # PM Text
 pm_start_text: |
   ────「 ʏᴏʀ ғᴏʀɢᴇʀ 」────
-やあ Kon'ichiwa {} - San!    
-I'm Yor Forger An Anime Themed Powerful & Advanced Group Management Robot
-
-◈  Server Uptime : `{}`  
-◈  `{}` Users, Across `{}` Chats.
-
-➢ Try The Help Buttons Below To Know My Abilities ♡
+  やあ Kon'ichiwa {} - San!   
+  I'm Yor Forger An Anime Themed Powerful & Advanced Group Management Robot 
+  ───────────────────────
+  ◈  Server Uptime :- `{}`             
+  ◈  `{}` Users, Across `{}` Chats.  
+  ───────────────────────
+  ➢ Try The Help Buttons Below To Know My Abilities.
    
 group_start_text: |
   Kon'ichiwa Minna, Am still alive protecting youu from the evil[💕](https://telegra.ph/file/d39a34a01c7b950f62409.jpg)
