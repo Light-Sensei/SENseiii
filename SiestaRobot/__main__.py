@@ -212,8 +212,11 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help"),
-                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="seista_"),
+                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
+                        ],
+                        [
+                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_"),
+                            InlineKeyboardButon(text=gs(chat.id, "support_button"), url="t.me/yorXsupport"),
                         ],
                         [
                             InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/yorxprobot?startgroup=new"),
