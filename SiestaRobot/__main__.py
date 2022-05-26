@@ -215,7 +215,7 @@ def start(update: Update, context: CallbackContext):
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
                         ],
                         [   InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_"),
-                            InlineKeyboardButton(text=gs(chat.id, "support_button"), url="t.me/yorxsupport"),
+                            InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorxsupport"),
                         ],
                         [
                             InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/yorxprobot?startgroup=new"),
