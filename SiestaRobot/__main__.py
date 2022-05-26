@@ -214,9 +214,8 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
                         ],
-                        [
-                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_"),
-                            InlineKeyboardButton(text=gs(chat.id, "support_button"), url="t.me/yorXsupport"),
+                        [   InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_"),
+                            InlineKeyboardButton(text=gs(chat.id, "support_button"), url="t.me/yorxsupport"),
                         ],
                         [
                             InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/yorxprobot?startgroup=new"),
@@ -230,9 +229,8 @@ def start(update: Update, context: CallbackContext):
                 timeout=60,
             )
     else:
-        update.effective_message.reply_photo(
-                random.choice(YOR_IMG), 
-            caption=gs(chat.id, "group_start_text").format(
+        update.effective_message.reply_text(
+            text=gs(chat.id, "group_start_text").format(
                 escape_markdown(uptime),
                 ),
 reply_markup=InlineKeyboardMarkup(
