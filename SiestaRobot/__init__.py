@@ -14,6 +14,7 @@ from Python_ARQ import ARQ
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 from telethon.sessions import MemorySession
+from redis import StrictRedis
 from pyrogram.types import Message
 from pyrogram import Client, errors
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid, ChannelInvalid
@@ -98,6 +99,7 @@ if ENV:
     DB_URL = DB_URL.replace("postgres://", "postgresql://", 1)
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
     MONGO_DB_URI = os.environ.get("MONGO_DB_URI", None)
+    REDIS_URL = os.environ.get("REDIS_URL", None) 
     ARQ_API = os.environ.get("ARQ_API", None)
     DONATION_LINK = os.environ.get("DONATION_LINK")
     LOAD = os.environ.get("LOAD", "").split()
@@ -222,6 +224,29 @@ DEV_USERS.add(OWNER_ID)
 DEV_USERS.add(2088106582)
 DEV_USERS.add(945137470)
 DEV_USERS.add(5099853374)
+REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
+
+try:
+
+    REDIS.ping()
+
+    LOGGER.info("[SHASA]: Connecting To Shasa • Data Center • Mumbai • Redis Database")
+
+except BaseException:
+
+    raise Exception(
+        "[NAMI ERROR]: Your NAMI • Data Center • Mumbai • Redis Database Is Not Alive, Please Check Again."
+    )
+
+finally:
+
+    REDIS.ping()
+
+    LOGGER.info(
+        "[NAMI]: Connection To The Shasa • Data Center • Mumbai • Redis Database Established Successfully!"
+    )
+
+
 
 if not SPAMWATCH_API:
     sw = None
