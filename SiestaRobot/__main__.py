@@ -409,7 +409,7 @@ def siesta_about_callback(update, context):
                     InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_back"),
                     ]
                 ]
-            ),
+             ],
         )
     elif query.data == "siesta_back":
         first_name = update.effective_user.first_name
