@@ -212,7 +212,10 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="yor_more"),
+                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
+                        ],
+                        [   InlineKeyboardButton(text=gs(chat.id, "more_button"), callback_data="siesta_"),
+                            InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorxsupport"),
                         ],
                         [
                             InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/yorxprobot?startgroup=new"),
@@ -387,7 +390,7 @@ def help_button(update, context):
 def siesta_about_callback(update, context):
     query = update.callback_query
     chat = update.effective_chat
-    if query.data == "yor_more":
+    if query.data == "siesta_":
         query.message.edit_text(
             text=gs(chat.id, "pm_about_text"),
             parse_mode=ParseMode.MARKDOWN,
@@ -395,21 +398,18 @@ def siesta_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="ᴀᴅᴍɪɴ", callback_data="siesta_admin"),
+                        InlineKeyboardButton(text="Admins", callback_data="siesta_admin"),
                         InlineKeyboardButton(text=gs(chat.id, "notes_button"), callback_data="siesta_notes"),
                     ],
                     [
                         InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorXsupport"),
-                        InlineKeyboardButton(text="ᴄʀᴇᴅɪᴛs", callback_data="siesta_credit"),
+                        InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
                     ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                        InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/yagami_roito"),
                     [
                     InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_back"),
                     ]
                 ]
-             ],
+            ),
         )
     elif query.data == "siesta_back":
         first_name = update.effective_user.first_name
