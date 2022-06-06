@@ -230,10 +230,21 @@ def start(update: Update, context: CallbackContext):
                 disable_web_page_preview=False,
             )
     else:
-        update.effective_message.reply_video(
-            ShikimoriSTART, caption= "<b>My original creator is inactive now.\nI have been awake and serving my current owner @Sneha_UwU_OwO since :</b> <code>{}</code> \n"
-            .format(uptime),
-            parse_mode=ParseMode.HTML)
+        update.effective_message.reply_text("Contact me in PM to get the list of possible commands",
+reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                "sᴜᴘᴘᴏʀᴛ", url=f"https://t.me//yorXsupport"),
+                            InlineKeyboardButton(
+                                "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/yor_X_updates")
+                        ],
+                    ]
+                ),
+            
+
+            parse_mode=ParseMode.MARKDOWN
+       )
 
 
 def error_handler(update, context):
@@ -716,7 +727,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                "👋 Hi, i'm alive.",
+                f"""**[Am Back to my job](https://telegra.ph/file/504b453954329a9cf3d76.jpg)**""",
                 parse_mode=ParseMode.MARKDOWN
             )
         except Unauthorized:
