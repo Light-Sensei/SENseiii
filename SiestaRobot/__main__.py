@@ -382,7 +382,7 @@ def Shikimori_about_callback(update, context):
                     InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
                  ],
                  [
-                    InlineKeyboardButton(text="Back", callback_data="Shikimori_back")
+                    InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
                  ]
                 ]
             ),
