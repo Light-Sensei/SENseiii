@@ -11,7 +11,6 @@ import SiestaRobot.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 from telegram import __version__ as peler
-from SiestaRobot.modules.language import gs
 from platform import python_version as memek
 from SiestaRobot import (
     ALLOW_EXCL,
@@ -648,7 +647,7 @@ def help_button(update, context):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="help_back"),
+                            InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back"),
                         ]
                     ]
                 ),
