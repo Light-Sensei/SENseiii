@@ -386,7 +386,7 @@ def Shikimori_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Admins", callback_data="admin_"),
-                    InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="notes_"),
+                    InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="about_notes"),
                  ],
                  [
                     InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorXsupport"),
@@ -454,7 +454,7 @@ def about_admin(update, context):
 
 def about_notes(update, context):
     query = update.callback_query
-    if query.data == "notes_":
+    if query.data == "about_notes":
         query.message.edit_text(
             text="""  
   *♥ Let's make your group bit effective now ♥*
@@ -836,7 +836,7 @@ def main():
     )
 
     about_notes_callback = CallbackQueryHandler(
-        about_notes, pattern=r"notes_", run_async=True
+        about_notes, pattern=r"about_notes", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
