@@ -505,7 +505,7 @@ def about_credits(update, context):
                  ],
                  [
                         InlineKeyboardButton(text="SOME1HING", url="https://t.me/SOME1_HING"),
-                 ]
+                 ],
                  [
                     InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
                  ]
