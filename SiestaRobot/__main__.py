@@ -389,118 +389,19 @@ def help_button(update, context):
 
 def siesta_about_callback(update, context):
     query = update.callback_query
-    chat = update.effective_chat
     if query.data == "siesta_":
         query.message.edit_text(
-            text=gs(chat.id, "pm_about_text"),
+            text="๏ I'm *Shikimori*, a powerful group management bot built to help you manage your group easily."
+            "\n• I can restrict users."
+            "\n• I can greet users with customizable welcome messages and even set a group's rules."
+            "\n• I have an advanced anti-flood system."
+            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
+            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
+            "\n• I check for admins' permissions before executing any command and more stuffs"
+            "\n\n_Shikimori's licensed under the GNU General Public License v3.0_"
+            "\n\n Click on button bellow to get basic help for ShikimoriBot.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text="Admins", callback_data="siesta_admin"),
-                        InlineKeyboardButton(text=gs(chat.id, "notes_button"), callback_data="siesta_notes"),
-                    ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorXsupport"),
-                        InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
-                    ],
-                    [
-                    InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_back"),
-                    ]
-                ]
-            ),
-        )
-    elif query.data == "siesta_back":
-        first_name = update.effective_user.first_name
-        uptime = get_readable_time((time.time() - StartTime))
-        query.message.edit_text(
-                text=gs(chat.id, "pm_start_text").format(
-                    escape_markdown(first_name),
-                    escape_markdown(uptime),
-                    sql.num_users(),
-                    sql.num_chats()),
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
-                        ],
-                        [
-                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/yagami_roito"),
-                        ],
-                        [
-                            InlineKeyboardButton(text=gs(chat.id, "add_bot_to_group_button"), url="t.me/?startgroup=new"),
-                        ]
-                    ]
-                ),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-                disable_web_page_preview=False,
-        )
-
-    elif query.data == "siesta_admin":
-        query.message.edit_text(
-            text=gs(chat.id, "pm_about_admin_text"),
-            parse_mode=ParseMode.MARKDOWN,
-            disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
-                    ]
-                ]
-            ),
-        )
-
-    elif query.data == "siesta_notes":
-        query.message.edit_text(
-            text=gs(chat.id, "pm_about_notes_text"),
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
-                    ]
-                ]
-            ),
-        )
-    elif query.data == "siesta_support":
-        query.message.edit_text(
-            text=gs(chat.id, "pm_about_support_text"),
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "support_chat_link_button"), url="t.me/yorXsupport"),
-                        InlineKeyboardButton(text=gs(chat.id, "updates_channel_link_button"), url="https://t.me/yorXupdates"),
-                    ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
-                    ]
-                ]
-            ),
-        )
-
-
-    elif query.data == "siesta_credit":
-        query.message.edit_text(
-            text=gs(chat.id, "pm_about_credit_text"),
-            parse_mode=ParseMode.MARKDOWN,
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text="Light Yagami", url="https://t.me/yagami_roito"),
-                    ],
-                    [
-                        InlineKeyboardButton(text="Bonten", url="https://t.me/bonten_community"),
-                        InlineKeyboardButton(text="Kazutora", url="https://t.me/zero-hisoka"),
-                    ],
-                    [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="siesta_"),
-                    ]
-                ]
-            ),
         )
 
 def Source_about_callback(update, context):
