@@ -102,7 +102,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="more_"),
-        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_module"),
+        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ],
     [
         InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorxsupport")
@@ -811,7 +811,7 @@ def main():
 
     help_handler = CommandHandler("help", get_help, run_async=True)
     help_callback_handler = CallbackQueryHandler(
-        help_button, pattern=r"help_module.*", run_async=True
+        help_button, pattern=r"help_back.*", run_async=True
     )
 
     settings_handler = CommandHandler("settings", get_settings, run_async=True)
