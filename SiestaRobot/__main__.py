@@ -427,7 +427,6 @@ def Shikimori_about_callback(update, context):
   *Greetings*
   Lets set a welcome message to welcome new users coming to your group.
   Send `/setwelcome [message]` to set a welcome message!""",
-                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
