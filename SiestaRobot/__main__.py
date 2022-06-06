@@ -88,17 +88,14 @@ I am *Micchon Shikimori* , a group management bot based on the anime *Shikimori'
 
 buttons = [
     [
-        InlineKeyboardButton(
-            text=" Add Shikimori to your Group", url="t.me/micchon_shikimori_bot?startgroup=true"),
+        InlineKeyboardButton(text="♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡", url="t.me/yorxprobot?startgroup=new"),
     ],
     [
-        InlineKeyboardButton(text="❓Help", callback_data="Shikimori_"),
-        InlineKeyboardButton(text=" 💬Commands", callback_data="help_back"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="Shikimori_"),
+        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="🚨Support Grp", url="https://t.me/tyranteyeeee"),
-        InlineKeyboardButton(text="❗Updates", url="https://t.me/Shikimori_bot_Updates"),
-   
+        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/yorxsupport"),   
     ], 
 ]
 
