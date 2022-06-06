@@ -415,29 +415,14 @@ def Shikimori_about_callback(update, context):
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-                """
-*♥ Let's make your group bit effective now ♥*
-
-  Congragulations, Yor Robot now ready to manage your group.
-
-  *Admin Tools*
-  Basic Admin tools help you to protect and powerup your group.
-  You can ban members, Kick members, Promote someone as admin through commands of bot.
-
-  *Greetings*
-  Lets set a welcome message to welcome new users coming to your group.
-  Send `/setwelcome [message]` to set a welcome message!""",
+                PM_START_TEXT.format(random.choice(PHOTO), escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
+                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,
-                reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="siesta_back"),
-                    ]
-                ]
-            ),
-        )
+                disable_web_page_preview=False,)
 
    
 
