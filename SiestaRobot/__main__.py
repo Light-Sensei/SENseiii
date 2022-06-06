@@ -101,7 +101,7 @@ buttons = [
         InlineKeyboardButton(text="♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡", url="t.me/yorxprobot?startgroup=new"),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="siesta_"),
+        InlineKeyboardButton(text="ᴍᴏ ʀᴇ", callback_data="siesta_"),
         InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ],
     [
