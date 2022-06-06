@@ -101,7 +101,7 @@ buttons = [
         InlineKeyboardButton(text="♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡", url="t.me/yorxprobot?startgroup=new"),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴏ ʀᴇ", callback_data="siesta_"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="more_"),
         InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ],
     [
@@ -382,7 +382,7 @@ def help_button(update, context):
 
 def siesta_about_callback(update, context):
     query = update.callback_query
-    if query.data == "siesta_":
+    if query.data == "more_":
         query.message.edit_text(
             text="♥ Hoi I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ♥"
             "\n ♡ I can restrict users."
@@ -820,7 +820,7 @@ def main():
     )
 
     about_callback_handler = CallbackQueryHandler(
-        siesta_about_callback, pattern=r"siesta_", run_async=True
+        siesta_about_callback, pattern=r"more_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
