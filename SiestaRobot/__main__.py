@@ -386,7 +386,7 @@ def Shikimori_about_callback(update, context):
                 [
                  [
                     InlineKeyboardButton(text="Admins", callback_data="admin_"),
-                    InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="siesta_notes"),
+                    InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="notes_"),
                  ],
                  [
                     InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorXsupport"),
@@ -428,6 +428,39 @@ def about_admin(update, context):
   *Greetings*
   Lets set a welcome message to welcome new users coming to your group.
   Send `/setwelcome [message]` to set a welcome message!""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "Shikimori_back":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+                PM_START_TEXT.format(random.choice(PHOTO), escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+        )
+
+def about_notes(update, context):
+    query = update.callback_query
+    if query.data == "notes_":
+        query.message.edit_text(
+            text="""  
+  *♥ Setting up notes ♥*
+
+  ♡ You can save message/media/audio or anything as notes to get a note simply use # at the beginning of a word
+  ♡ You can also set buttons for notes and filters (refer help menu)""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -795,6 +828,10 @@ def main():
         about_admin, pattern=r"admin_", run_async=True
     )
 
+    about_notes_callback = CallbackQueryHandler(
+        about_notes, pattern=r"notes_", run_async=True
+    )
+
     source_callback_handler = CallbackQueryHandler(
         Source_about_callback, pattern=r"source_", run_async=True
     )
@@ -804,6 +841,7 @@ def main():
         Filters.status_update.migrate, migrate_chats, run_async=True
     )
 
+    dispatcher.add_handler(about_notes_callback)
     dispatcher.add_handler(test_handler)
     dispatcher.add_handler(about_admin_callback)
     dispatcher.add_handler(start_handler)
