@@ -235,7 +235,7 @@ reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                "sᴜᴘᴘᴏʀᴛ", url=f"https://t.me//yorXsupport"),
+                                "sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/yorXsupport"),
                             InlineKeyboardButton(
                                 "ᴜᴘᴅᴀᴛᴇs", url=f"https://t.me/yor_X_updates")
                         ],
@@ -410,6 +410,34 @@ def Shikimori_about_callback(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
                 disable_web_page_preview=False,
+        )
+    elif query.data == "siesta_admin":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+                """
+*♥ Let's make your group bit effective now ♥*
+
+  Congragulations, Yor Robot now ready to manage your group.
+
+  *Admin Tools*
+  Basic Admin tools help you to protect and powerup your group.
+  You can ban members, Kick members, Promote someone as admin through commands of bot.
+
+  *Greetings*
+  Lets set a welcome message to welcome new users coming to your group.
+  Send `/setwelcome [message]` to set a welcome message!""",
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+                reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="siesta_back"),
+                    ]
+                ]
+            ),
         )
 
    
