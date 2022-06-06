@@ -26,7 +26,7 @@ regex_downvote = r"^(\-|\-\-|\-1|👎|noob|weak)$"
 
 @app.on_message(
     filters.text
-    & Filters.chat_type.groups
+    & filters.group
     & filters.incoming
     & filters.reply
     & filters.regex(regex_upvote)
@@ -67,7 +67,7 @@ async def upvote(_, message):
 
 @app.on_message(
     filters.text
-    & Filters.chat_type.groups
+    & filters.group
     & filters.incoming
     & filters.reply
     & filters.regex(regex_upvote)
@@ -104,7 +104,7 @@ async def upvote(_, message):
 
 @app.on_message(
     filters.text
-    & Filters.chat_type.groups
+    & filters.group
     & filters.incoming
     & filters.reply
     & filters.regex(regex_downvote)
@@ -140,7 +140,7 @@ async def downvote(_, message):
     )
 
 
-@app.on_message(filters.command("karmastat") & Filters.chat_type.groups)
+@app.on_message(filters.command("karmastat") & filters.group)
 @capture_err
 async def karma(_, message):
     chat_id = message.chat.id
