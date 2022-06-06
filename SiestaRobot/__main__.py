@@ -81,9 +81,14 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hello {}! Nice to meet you! 
-I am *Micchon Shikimori* , a group management bot based on the anime *Shikimori's Not Just a Cutie*[!](https://telegra.ph/file/d25870fc3e94ed674490c.mp4)
-*Click on the Commands Button below to go through my commands.*
+  ────「 ʏᴏʀ ғᴏʀɢᴇʀ 」────
+  やあ Kon'ichiwa {} - San!   
+  I'm Yor Forger An Anime Themed Powerful & Advanced Group Management Robot 
+  ───────────────────────
+  ◈  Server Uptime :- `{}`             
+  ◈  `{}` Users, Across `{}` Chats.  
+  ───────────────────────
+  ➢ Try The Help Buttons Below To Know My Abilities.
 """
 
 buttons = [
@@ -91,7 +96,7 @@ buttons = [
         InlineKeyboardButton(text="♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡", url="t.me/yorxprobot?startgroup=new"),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="more_"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="Shikimori_"),
         InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ],
     [
@@ -207,8 +212,10 @@ def start(update: Update, context: CallbackContext):
         else:
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name)),                        
+                PM_START_TEXT.format(escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),                        
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -345,7 +352,7 @@ def help_button(update, context):
 
 def Shikimori_about_callback(update, context):
     query = update.callback_query
-    if query.data == "more_":
+    if query.data == "Shikimori_":
         query.message.edit_text(
             text="๏ I'm *Shikimori*, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
@@ -370,8 +377,10 @@ def Shikimori_about_callback(update, context):
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-                PM_START_TEXT.format(
-                    escape_markdown(first_name)),
+                PM_START_TEXT.format(escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
@@ -407,6 +416,7 @@ def Source_about_callback(update, context):
         )
     elif query.data == "source_back":
         first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
                 PM_START_TEXT.format(
                     escape_markdown(first_name),
@@ -715,7 +725,7 @@ def main():
     )
 
     about_callback_handler = CallbackQueryHandler(
-        Shikimori_about_callback, pattern=r"more_", run_async=True
+        Shikimori_about_callback, pattern=r"Shikimori_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
