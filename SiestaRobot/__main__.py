@@ -457,17 +457,10 @@ def about_notes(update, context):
     if query.data == "about_notes":
         query.message.edit_text(
             text="""  
-  *♥ Let's make your group bit effective now ♥*
+  *♥ Setting up notes ♥*
 
-  Congragulations, Yor Robot now ready to manage your group.
-
-  *Admin Tools*
-  Basic Admin tools help you to protect and powerup your group.
-  You can ban members, Kick members, Promote someone as admin through commands of bot.
-
-  *Greetings*
-  Lets set a welcome message to welcome new users coming to your group.
-  Send `/setwelcome [message]` to set a welcome message!""",
+  ♡ You can save message/media/audio or anything as notes to get a note simply use # at the beginning of a word
+  ♡ You can also set buttons for notes and filters (refer help menu)""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
