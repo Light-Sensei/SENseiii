@@ -91,7 +91,7 @@ buttons = [
         InlineKeyboardButton(text="♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡", url="t.me/yorxprobot?startgroup=new"),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="Shikimori_"),
+        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="more_"),
         InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ],
     [
@@ -345,7 +345,7 @@ def help_button(update, context):
 
 def Shikimori_about_callback(update, context):
     query = update.callback_query
-    if query.data == "Shikimori_":
+    if query.data == "more_":
         query.message.edit_text(
             text="๏ I'm *Shikimori*, a powerful group management bot built to help you manage your group easily."
             "\n• I can restrict users."
@@ -715,7 +715,7 @@ def main():
     )
 
     about_callback_handler = CallbackQueryHandler(
-        Shikimori_about_callback, pattern=r"Shikimori_", run_async=True
+        Shikimori_about_callback, pattern=r"more_", run_async=True
     )
 
     source_callback_handler = CallbackQueryHandler(
