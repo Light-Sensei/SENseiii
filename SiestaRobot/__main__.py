@@ -554,14 +554,14 @@ def get_help(update: Update, context: CallbackContext):
             module = args[1].lower()
             moduls = module.capitalize()
             update.effective_message.reply_text(
-                text=gs(chat.id, "group_help_modules_text").format(
+                text="Contact me in PM to get help of *{}*".format(
                     escape_markdown(moduls),
                     ),
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "group_help_button"),
+                                text="ʜᴇʟᴘ",
                                 url="t.me/{}?start=ghelp_{}".format(
                                     context.bot.username, module
                                 ),
@@ -573,12 +573,12 @@ def get_help(update: Update, context: CallbackContext):
             )
             return
         update.effective_message.reply_text(
-            text=gs(chat.id, "group_help_text"),
+            text="Contact me in PM to get the list of possible commands.",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text=gs(chat.id, "group_help_button"),
+                            text="ʜᴇʟᴘ",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ]
@@ -596,19 +596,21 @@ def get_help(update: Update, context: CallbackContext):
             + HELPABLE[module].helps
         )
         send_help(
-            chat.id,
             text,
             InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="help_back"),
+                        InlineKeyboardButton(text="Back", callback_data="help_back"),
                     ]
                 ]
             ),
         )
 
     else:
-        send_help(chat.id, "pm_help_text")
+        send_help("""
+*♥ Click on the button bellow to get description about specifics command. ♥*
+  
+If You Face Any Problems Please Report It To Our Support Group.""")
 
 def help_button(update, context):
     query = update.callback_query
@@ -634,7 +636,7 @@ def help_button(update, context):
             
             # Call The Converted Module
             text = (
-                gs(chat.id, "pm_help_module_text").format(
+                "Here is the help for the *{}* module:\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + help_text
@@ -655,7 +657,10 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             query.message.edit_text(
-                text=gs(chat.id,"pm_help_text"),
+                text="""
+*♥ Click on the button bellow to get description about specifics command. ♥*
+  
+If You Face Any Problems Please Report It To Our Support Group.""",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(curr_page - 1, HELPABLE, "help")
@@ -665,7 +670,10 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             query.message.edit_text(
-                text=gs(chat.id,"pm_help_text"),
+                text="""
+*♥ Click on the button bellow to get description about specifics command. ♥*
+  
+If You Face Any Problems Please Report It To Our Support Group.""",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(next_page + 1, HELPABLE, "help")
@@ -674,7 +682,10 @@ def help_button(update, context):
 
         elif back_match:
             query.message.edit_text(
-                text=gs(chat.id,"pm_help_text"),
+                text="""
+*♥ Click on the button bellow to get description about specifics command. ♥*
+  
+If You Face Any Problems Please Report It To Our Support Group.""",
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
                     paginate_modules(0, HELPABLE, "help")
