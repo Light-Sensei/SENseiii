@@ -385,7 +385,7 @@ def Shikimori_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Admins", callback_data="siesta_admin"),
+                    InlineKeyboardButton(text="Admins", callback_data="admin_"),
                     InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="siesta_notes"),
                  ],
                  [
@@ -411,7 +411,34 @@ def Shikimori_about_callback(update, context):
                 timeout=60,
                 disable_web_page_preview=False,
         )
-    elif query.data == "siesta_admin":
+
+def about_admin(update, context):
+    query = update.callback_query
+    if query.data == "admin_":
+        query.message.edit_text(
+            text="""  
+  *♥ Let's make your group bit effective now ♥*
+
+  Congragulations, Yor Robot now ready to manage your group.
+
+  *Admin Tools*
+  Basic Admin tools help you to protect and powerup your group.
+  You can ban members, Kick members, Promote someone as admin through commands of bot.
+
+  *Greetings*
+  Lets set a welcome message to welcome new users coming to your group.
+  Send `/setwelcome [message]` to set a welcome message!""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "Shikimori_back":
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
@@ -422,9 +449,8 @@ def Shikimori_about_callback(update, context):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
-                disable_web_page_preview=False,)
-
-   
+                disable_web_page_preview=False,
+        )
 
 def Source_about_callback(update, context):
     query = update.callback_query
@@ -765,6 +791,9 @@ def main():
     about_callback_handler = CallbackQueryHandler(
         Shikimori_about_callback, pattern=r"Shikimori_", run_async=True
     )
+    about_admin_callback = CallbackQueryHandler(
+        about_admin, pattern=r"admin_", run_async=True
+    )
 
     source_callback_handler = CallbackQueryHandler(
         Source_about_callback, pattern=r"source_", run_async=True
@@ -776,6 +805,7 @@ def main():
     )
 
     dispatcher.add_handler(test_handler)
+    dispatcher.add_handler(about_admin_callback)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
     dispatcher.add_handler(about_callback_handler)
