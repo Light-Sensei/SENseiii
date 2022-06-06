@@ -374,6 +374,14 @@ def Shikimori_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
+                    InlineKeyboardButton(text="Admins", callback_data="siesta_admin"),
+                    InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="siesta_notes"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorXsupport"),
+                    InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
+                 ],
+                 [
                     InlineKeyboardButton(text="Back", callback_data="Shikimori_back")
                  ]
                 ]
