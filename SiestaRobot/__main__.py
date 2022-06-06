@@ -11,6 +11,7 @@ import SiestaRobot.modules.sql.users_sql as sql
 from sys import argv
 from typing import Optional
 from telegram import __version__ as peler
+from SiestaRobot.modules.language import gs
 from platform import python_version as memek
 from SiestaRobot import (
     ALLOW_EXCL,
@@ -305,68 +306,7 @@ def error_callback(update: Update, context: CallbackContext):
         # handle all other telegram related errors
 
 
-def help_button(update, context):
-    query = update.callback_query
-    mod_match = re.match(r"help_module\((.+?)\)", query.data)
-    prev_match = re.match(r"help_prev\((.+?)\)", query.data)
-    next_match = re.match(r"help_next\((.+?)\)", query.data)
-    back_match = re.match(r"help_back", query.data)
 
-    print(query.message.chat.id)
-
-    try:
-        if mod_match:
-            module = mod_match.group(1)
-            text = (
-                "Here is the help for the *{}* module:\n".format(
-                    HELPABLE[module].__mod_name__
-                )
-                + HELPABLE[module].__help__
-            )
-            query.message.edit_text(
-                text=text,
-                parse_mode=ParseMode.MARKDOWN,
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
-                ),
-            )
-
-        elif prev_match:
-            curr_page = int(prev_match.group(1))
-            query.message.edit_text(
-                text=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(curr_page - 1, HELPABLE, "help")
-                ),
-            )
-
-        elif next_match:
-            next_page = int(next_match.group(1))
-            query.message.edit_text(
-                text=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(next_page + 1, HELPABLE, "help")
-                ),
-            )
-
-        elif back_match:
-            query.message.edit_text(
-                text=HELP_STRINGS,
-                parse_mode=ParseMode.MARKDOWN,
-                reply_markup=InlineKeyboardMarkup(
-                    paginate_modules(0, HELPABLE, "help")
-                ),
-            )
-
-        # ensure no spinny white circle
-        context.bot.answer_callback_query(query.id)
-        # query.message.delete()
-
-    except BadRequest:
-        pass
 
 
 def Shikimori_about_callback(update, context):
@@ -500,10 +440,6 @@ def about_credits(update, context):
                         InlineKeyboardButton(text="Light Yagami", url="https://t.me/yagami_roito"),
                  ],
                  [
-                        InlineKeyboardButton(text="Bonten", url="https://t.me/bonten_community"),
-                        InlineKeyboardButton(text="Kazutora", url="https://t.me/zero-hisoka"),
-                 ],
-                 [
                         InlineKeyboardButton(text="SOME1HING", url="https://t.me/SOME1_HING"),
                  ],
                  [
@@ -567,64 +503,6 @@ def Source_about_callback(update, context):
                 disable_web_page_preview=False,
         )
 
-def get_help(update: Update, context: CallbackContext):
-    chat = update.effective_chat  # type: Optional[Chat]
-    args = update.effective_message.text.split(None, 1)
-
-    # ONLY send help in PM
-    if chat.type != chat.PRIVATE:
-        if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
-            module = args[1].lower()
-            update.effective_message.reply_text(
-                f"Contact me in PM to get help of {module.capitalize()}",
-                reply_markup=InlineKeyboardMarkup(
-                    [
-                        [
-                            InlineKeyboardButton(
-                                text="Help",
-                                url="t.me/{}?start=ghelp_{}".format(
-                                    context.bot.username, module
-                                ),
-                            )
-                        ]
-                    ]
-                ),
-            )
-            return
-        update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="Help",
-                            url="t.me/{}?start=help".format(context.bot.username),
-                        )
-                    ]
-                ]
-            ),
-        )
-        return
-
-    elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
-        module = args[1].lower()
-        text = (
-            "Here is the available help for the *{}* module:\n".format(
-                HELPABLE[module].__mod_name__
-            )
-            + HELPABLE[module].__help__
-        )
-        send_help(
-            chat.id,
-            text,
-            InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
-            ),
-        )
-
-    else:
-        send_help(chat.id, HELP_STRINGS)
-
 
 def send_settings(chat_id, user_id, user=False):
     if user:
@@ -666,6 +544,149 @@ def send_settings(chat_id, user_id, user=False):
                 parse_mode=ParseMode.MARKDOWN,
             )
 
+def get_help(update: Update, context: CallbackContext):
+    chat = update.effective_chat  # type: Optional[Chat]
+    args = update.effective_message.text.split(None, 1)
+
+    # ONLY send help in PM
+    if chat.type != chat.PRIVATE:
+        if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
+            module = args[1].lower()
+            moduls = module.capitalize()
+            update.effective_message.reply_text(
+                text=gs(chat.id, "group_help_modules_text").format(
+                    escape_markdown(moduls),
+                    ),
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "group_help_button"),
+                                url="t.me/{}?start=ghelp_{}".format(
+                                    context.bot.username, module
+                                ),
+                            )
+                        ]
+                    ]
+                ),
+                parse_mode=ParseMode.MARKDOWN,
+            )
+            return
+        update.effective_message.reply_text(
+            text=gs(chat.id, "group_help_text"),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text=gs(chat.id, "group_help_button"),
+                            url="t.me/{}?start=help".format(context.bot.username),
+                        )
+                    ]
+                ]
+            ),
+        )
+        return
+
+    elif len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
+        module = args[1].lower()
+        text = (
+            "Here is the available help for the *{}* module:\n".format(
+                HELPABLE[module].__mod_name__
+            )
+            + HELPABLE[module].helps
+        )
+        send_help(
+            chat.id,
+            text,
+            InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="help_back"),
+                    ]
+                ]
+            ),
+        )
+
+    else:
+        send_help(chat.id, "pm_help_text")
+
+def help_button(update, context):
+    query = update.callback_query
+    chat = update.effective_chat
+    mod_match = re.match(r"help_module\((.+?)\)", query.data)
+    prev_match = re.match(r"help_prev\((.+?)\)", query.data)
+    next_match = re.match(r"help_next\((.+?)\)", query.data)
+    back_match = re.match(r"help_back", query.data)
+
+    print(query.message.chat.id)
+
+    try:
+        if mod_match:
+            module = mod_match.group(1)
+
+            # Convert Function To String
+            module = module.replace("_", " ")
+            help_list = HELPABLE[module].helps(update.effective_chat.id)
+            if isinstance(help_list, list):
+                help_text = help_list[0]
+            elif isinstance(help_list, str):
+                help_text = help_list
+            
+            # Call The Converted Module
+            text = (
+                gs(chat.id, "pm_help_module_text").format(
+                    HELPABLE[module].__mod_name__
+                )
+                + help_text
+            )
+            query.message.edit_text(
+                text=text,
+                parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(text=gs(chat.id, "back_button"), callback_data="help_back"),
+                        ]
+                    ]
+                ),
+            )
+
+        elif prev_match:
+            curr_page = int(prev_match.group(1))
+            query.message.edit_text(
+                text=gs(chat.id,"pm_help_text"),
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(curr_page - 1, HELPABLE, "help")
+                ),
+            )
+
+        elif next_match:
+            next_page = int(next_match.group(1))
+            query.message.edit_text(
+                text=gs(chat.id,"pm_help_text"),
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(next_page + 1, HELPABLE, "help")
+                ),
+            )
+
+        elif back_match:
+            query.message.edit_text(
+                text=gs(chat.id,"pm_help_text"),
+                parse_mode=ParseMode.MARKDOWN,
+                reply_markup=InlineKeyboardMarkup(
+                    paginate_modules(0, HELPABLE, "help")
+                ),
+            )
+
+        # ensure no spinny white circle
+        context.bot.answer_callback_query(query.id)
+        # query.message.delete()
+
+    except BadRequest:
+        pass
 
 def settings_button(update: Update, context: CallbackContext):
     query = update.callback_query
