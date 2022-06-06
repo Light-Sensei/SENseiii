@@ -105,10 +105,10 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="Shikimori_"),
-        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
+        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/yorxsupport"),   
     ],
     [
-        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/yorxsupport"),   
+        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ], 
 ]
 
