@@ -595,6 +595,7 @@ def get_help(update: Update, context: CallbackContext):
             + HELPABLE[module].helps
         )
         send_help(
+            chat.id,
             text,
             InlineKeyboardMarkup(
                 [
@@ -606,7 +607,7 @@ def get_help(update: Update, context: CallbackContext):
         )
 
     else:
-        send_help("""
+        send_help(chat.id,"""
 *♥ Click on the button bellow to get description about specifics command. ♥*
   
 If You Face Any Problems Please Report It To Our Support Group.""")
