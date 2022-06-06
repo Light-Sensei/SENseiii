@@ -390,7 +390,7 @@ def Shikimori_about_callback(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorXsupport"),
-                    InlineKeyboardButton(text="Credits", callback_data="siesta_credit"),
+                    InlineKeyboardButton(text="Credits", callback_data="about_credits"),
                  ],
                  [
                     InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
