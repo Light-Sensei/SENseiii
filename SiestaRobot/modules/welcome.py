@@ -209,6 +209,18 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
                 )
                 continue
 
+            if new_mem.id == 949365920:
+                    update.effective_message.reply_photo("https://telegra.ph/file/ff7ef0199a298b5518fc5.jpg",
+                        "Every One Behave My 𝕯𝖊𝖛𝖊𝖑𝖔𝖕𝖊𝖗 Is Here",
+                        reply_to_message_id=reply,
+                    )
+                    welcome_log = (
+                        f"{html.escape(chat.title)}\n"
+                        f"#USER_JOINED\n"
+                        f"Bot Dev just joined the chat"
+                    )
+                    continue
+
             # Welcome Devs
             if new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(

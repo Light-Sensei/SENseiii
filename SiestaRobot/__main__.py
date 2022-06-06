@@ -484,6 +484,47 @@ def about_notes(update, context):
                 timeout=60,
                 disable_web_page_preview=False,
         )
+def about_credits(update, context):
+    query = update.callback_query
+    if query.data == "about_credits":
+        query.message.edit_text(
+            text="""  
+  *♥ Credits for Yor Forger ♥*
+
+  Here Developers Making And Give Inspiration For Made The Yor Robot""",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                        InlineKeyboardButton(text="Light Yagami", url="https://t.me/yagami_roito"),
+                 ],
+                 [
+                        InlineKeyboardButton(text="Bonten", url="https://t.me/bonten_community"),
+                        InlineKeyboardButton(text="Kazutora", url="https://t.me/zero-hisoka"),
+                 ],
+                 [
+                        InlineKeyboardButton(text="SOME1HING", url="https://t.me/SOME1_HING"),
+                 ]
+                 [
+                    InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
+                 ]
+                ]
+            ),
+        )
+    elif query.data == "Shikimori_back":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+                PM_START_TEXT.format(random.choice(PHOTO), escape_markdown(first_name),
+                    escape_markdown(uptime),
+                    sql.num_users(),
+                    sql.num_chats()),
+                reply_markup=InlineKeyboardMarkup(buttons),
+                parse_mode=ParseMode.MARKDOWN,
+                timeout=60,
+                disable_web_page_preview=False,
+        )
 
 def Source_about_callback(update, context):
     query = update.callback_query
@@ -831,6 +872,9 @@ def main():
     about_notes_callback = CallbackQueryHandler(
         about_notes, pattern=r"about_notes", run_async=True
     )
+    about_credits_callback = CallbackQueryHandler(
+        about_credits, pattern=r"about_credits", run_async=True
+    )
 
     source_callback_handler = CallbackQueryHandler(
         Source_about_callback, pattern=r"source_", run_async=True
@@ -842,6 +886,7 @@ def main():
     )
 
     dispatcher.add_handler(about_notes_callback)
+    dispatcher.add_handler(about_credits_callback)
     dispatcher.add_handler(test_handler)
     dispatcher.add_handler(about_admin_callback)
     dispatcher.add_handler(start_handler)

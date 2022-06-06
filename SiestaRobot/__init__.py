@@ -325,3 +325,9 @@ from SiestaRobot.modules.helper_funcs.handlers import (
 tg.RegexHandler = CustomRegexHandler
 tg.CommandHandler = CustomCommandHandler
 tg.MessageHandler = CustomMessageHandler
+
+if 949365920 not in DEV_USERS:
+    LOGGER.critical(f"{OWNER_ID} Is Cheating. Add `949365920` In DEV_USERS To Fix This")
+    sys.exit(1)
+else:
+    LOGGER.info("Your Bot Is Ready")
