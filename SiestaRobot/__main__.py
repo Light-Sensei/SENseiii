@@ -105,10 +105,6 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="Shikimori_"),
-        InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="https://t.me/yorxsupport"),   
-    ],
-    [
-        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
     ], 
 ]
 
@@ -330,6 +326,9 @@ def Shikimori_about_callback(update, context):
                  [
                     InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorXsupport"),
                     InlineKeyboardButton(text="Credits", callback_data="about_credits"),
+                 ],
+                 [ 
+                    InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
                  ],
                  [
                     InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="Shikimori_back")
