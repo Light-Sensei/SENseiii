@@ -102,7 +102,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="more_"),
-        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
+        InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_"),
     ],
     [
         InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorxsupport")

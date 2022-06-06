@@ -20,7 +20,7 @@ from SiestaRobot.modules.helper_funcs.chat_status import user_admin, user_admin_
 from SiestaRobot import dispatcher, updater, SUPPORT_CHAT
 from SiestaRobot.modules.log_channel import gloggable
 
-@run_async
+
 @user_admin_no_reply
 @gloggable
 def kukirm(update: Update, context: CallbackContext) -> str:
@@ -46,7 +46,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
 
     return ""
 
-@run_async
+
 @user_admin_no_reply
 @gloggable
 def kukiadd(update: Update, context: CallbackContext) -> str:
@@ -72,7 +72,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
 
     return ""
 
-@run_async
+
 @user_admin
 @gloggable
 def kuki(update: Update, context: CallbackContext):
@@ -103,7 +103,7 @@ def kuki_message(context: CallbackContext, message):
     else:
         return False
         
-@run_async
+
 def chatbot(update: Update, context: CallbackContext):
     message = update.effective_message
     chat_id = update.effective_chat.id
@@ -123,7 +123,7 @@ def chatbot(update: Update, context: CallbackContext):
         sleep(0.3)
         message.reply_text(kuki, timeout=60)
 
-@run_async
+
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
     text = "<b>KUKI-Enabled Chats</b>\n"
@@ -148,14 +148,14 @@ Chatbot utilizes the Kuki's api which allows Kuki to talk and provide a more int
 __mod_name__ = "ChatBot"
 
 
-CHATBOTK_HANDLER = CommandHandler("chatbot", kuki)
-ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat")
-RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat")
+CHATBOTK_HANDLER = CommandHandler("chatbot", kuki, run_async=True)
+ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat", run_async=True)
+RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat", run_async=True)
 CHATBOT_HANDLER = MessageHandler(
     Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
-                    & ~Filters.regex(r"^\/")), chatbot)
+                    & ~Filters.regex(r"^\/")), chatbot, run_async=True)
 LIST_ALL_CHATS_HANDLER = CommandHandler(
-    "allchats", list_all_chats, filters=CustomFilters.dev_filter)
+    "allchats", list_all_chats, filters=CustomFilters.dev_filter, run_async=True)
 
 dispatcher.add_handler(ADD_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOTK_HANDLER)
