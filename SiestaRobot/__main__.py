@@ -1,7 +1,7 @@
 import html
-import random
 import os
 import json
+import random
 import importlib
 import time
 import re
@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
   ────「 ʏᴏʀ ғᴏʀɢᴇʀ 」────
-  やあ Kon'ichiwa {} - San!   
+  [やあ]({}) Kon'ichiwa {} - San!   
   I'm Yor Forger An Anime Themed Powerful & Advanced Group Management Robot 
   ───────────────────────
   ◈  Server Uptime :- `{}`             
@@ -92,7 +92,7 @@ PM_START_TEXT = """
   ➢ Try The Help Buttons Below To Know My Abilities.
 """
 
-YOR_IMG = (
+PHOTO = (
       "https://telegra.ph/file/504b453954329a9cf3d76.jpg",
       "https://telegra.ph/file/15a39f910986b639a4981.jpg",
       "https://telegra.ph/file/5fc0fa0316da7ad8ed53a.jpg",
@@ -219,9 +219,8 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_photo(
-                random.choice(YOR_IMG),
-                caption=PM_START_TEXT.format(escape_markdown(first_name),
+            update.effective_message.reply_text(
+                PM_START_TEXT.format(random.choice(PHOTO),escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),                        
@@ -386,7 +385,7 @@ def Shikimori_about_callback(update, context):
         first_name = update.effective_user.first_name
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-                PM_START_TEXT.format(escape_markdown(first_name),
+                PM_START_TEXT.format(random.choice(PHOTO), escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),
@@ -428,6 +427,7 @@ def Source_about_callback(update, context):
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
                 PM_START_TEXT.format(
+                    random.choice(PHOTO),
                     escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
