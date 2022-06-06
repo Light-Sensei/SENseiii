@@ -1,4 +1,5 @@
 import html
+import random
 import os
 import json
 import importlib
@@ -90,6 +91,13 @@ PM_START_TEXT = """
   ───────────────────────
   ➢ Try The Help Buttons Below To Know My Abilities.
 """
+
+YOR_IMG = (
+      "https://telegra.ph/file/504b453954329a9cf3d76.jpg",
+      "https://telegra.ph/file/15a39f910986b639a4981.jpg",
+      "https://telegra.ph/file/5fc0fa0316da7ad8ed53a.jpg",
+      "https://telegra.ph/file/ee373f53bf79e8681e1b8.jpg",
+)
 
 buttons = [
     [
@@ -211,8 +219,9 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name),
+            update.effective_message.reply_photo(
+                random.choice(YOR_IMG),
+                caption=PM_START_TEXT.format(escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
                     sql.num_chats()),                        
