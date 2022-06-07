@@ -101,10 +101,10 @@ PHOTO = (
 
 buttons = [
     [
-        InlineKeyboardButton(text="♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡", url="t.me/yorxprobot?startgroup=new"),
+        InlineKeyboardButton(text="† ᴀᴅᴅ ᴍᴇ †", url="t.me/yorxprobot?startgroup=new"),
     ],
     [
-        InlineKeyboardButton(text="ᴍᴏʀᴇ", callback_data="Shikimori_"),
+        InlineKeyboardButton(text="† ᴍᴏʀᴇ ᴏᴘᴛɪᴏɴs †", callback_data="Shikimori_"),
     ], 
 ]
 
@@ -226,7 +226,7 @@ def start(update: Update, context: CallbackContext):
                 disable_web_page_preview=False,
             )
     else:
-        update.effective_message.reply_text("Contact me in PM to get the list of possible commands",
+        update.effective_message.reply_text("[Kon'ichiwa Am Yor Forger I'll Protect You From The Guilty/n]({})",
 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -308,24 +308,24 @@ def Shikimori_about_callback(update, context):
     query = update.callback_query
     if query.data == "Shikimori_":
         query.message.edit_text(
-            text="♥ Hoi I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ♥"
-            "\n ♡ I can restrict users."
-            "\n ♡ I can greet users with customizable welcome messages and even set a group's rules."
-            "\n♡ I have an advanced anti-flood system."
-            "\n♡ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.."
-            "\n♡ I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n♡ I check for admins' permissions before executing any command and more stuffs",
+            text="⤀ Hoi I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ⬴"
+            "\n ➢ I can restrict users."
+            "\n ➢ I can greet users with customizable welcome messages and even set a group's rules."
+            "\n➢ I have an advanced anti-flood system."
+            "\n➢ I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc.."
+            "\n➢ I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
+            "\n➢ I check for admins' permissions before executing any command and more stuffs",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Admins", callback_data="admin_"),
+                    InlineKeyboardButton(text="ᴀᴅᴍɪɴs", callback_data="admin_"),
                     InlineKeyboardButton(text="ɴᴏᴛᴇs", callback_data="about_notes"),
                  ],
                  [
                     InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ", url="t.me/yorXsupport"),
-                    InlineKeyboardButton(text="Credits", callback_data="about_credits"),
+                    InlineKeyboardButton(text="ᴄʀᴇᴅɪᴛs", callback_data="about_credits"),
                  ],
                  [ 
                     InlineKeyboardButton(text=" ʜᴇʟᴘ", callback_data="help_back"),
@@ -355,7 +355,7 @@ def about_admin(update, context):
     if query.data == "admin_":
         query.message.edit_text(
             text="""  
-  *♥ Let's make your group bit effective now ♥*
+  *⤀ Let's make your group bit effective now ⬴*
 
   Congragulations, Yor Robot now ready to manage your group.
 
@@ -395,10 +395,10 @@ def about_notes(update, context):
     if query.data == "about_notes":
         query.message.edit_text(
             text="""  
-  *♥ Setting up notes ♥*
+  *⤀ Setting up notes ⬴*
 
-  ♡ You can save message/media/audio or anything as notes to get a note simply use # at the beginning of a word
-  ♡ You can also set buttons for notes and filters (refer help menu)""",
+  ➢ You can save message/media/audio or anything as notes to get a note simply use # at the beginning of a word
+  ➢ You can also set buttons for notes and filters (refer help menu)""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -607,7 +607,7 @@ def get_help(update: Update, context: CallbackContext):
 
     else:
         send_help(chat.id,"""
-*♥ Click on the button bellow to get description about specifics command. ♥*
+*⤀ Click on the button bellow to get description about specifics command. ⬴*
   
 If You Face Any Problems Please Report It To Our Support Group.""")
 
@@ -657,7 +657,7 @@ def help_button(update, context):
             curr_page = int(prev_match.group(1))
             query.message.edit_text(
                 text="""
-*♥ Click on the button bellow to get description about specifics command. ♥*
+*⤀ Click on the button bellow to get description about specifics command. ⬴*
   
 If You Face Any Problems Please Report It To Our Support Group.""",
                 parse_mode=ParseMode.MARKDOWN,
@@ -670,7 +670,7 @@ If You Face Any Problems Please Report It To Our Support Group.""",
             next_page = int(next_match.group(1))
             query.message.edit_text(
                 text="""
-*♥ Click on the button bellow to get description about specifics command. ♥*
+*⤀ Click on the button bellow to get description about specifics command. ⬴*
   
 If You Face Any Problems Please Report It To Our Support Group.""",
                 parse_mode=ParseMode.MARKDOWN,
@@ -682,7 +682,7 @@ If You Face Any Problems Please Report It To Our Support Group.""",
         elif back_match:
             query.message.edit_text(
                 text="""
-*♥ Click on the button bellow to get description about specifics command. ♥*
+*⤀ Click on the button bellow to get description about specifics command. ⬴*
   
 If You Face Any Problems Please Report It To Our Support Group.""",
                 parse_mode=ParseMode.MARKDOWN,
@@ -796,7 +796,7 @@ def get_settings(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Settings",
+                                text="sᴇᴛᴛɪɴɢs",
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
