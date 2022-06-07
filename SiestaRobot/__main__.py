@@ -226,7 +226,7 @@ def start(update: Update, context: CallbackContext):
                 disable_web_page_preview=False,
             )
     else:
-        update.effective_message.reply_text("[Kon'ichiwa Am Yor Forger I'll Protect You From The Guilty/n]({})",
+        update.effective_message.reply_text("[Kon'ichiwa Am Yor Forger I'll Protect You From The Guilty](https://telegra.ph/file/5cc285da85db0357eea10.jpg)",
 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -427,7 +427,7 @@ def about_credits(update, context):
     if query.data == "about_credits":
         query.message.edit_text(
             text="""  
-  *♥ Credits for Yor Forger ♥*
+  *⤀ Credits for Yor Forger ⬴ *
 
   Here Developers Making And Give Inspiration For Made The Yor Robot""",
             parse_mode=ParseMode.MARKDOWN,
