@@ -90,18 +90,14 @@ def paginate_modules(page_n: int, module_dict: Dict, prefix, chat=None) -> List:
                 EqInlineKeyboardButton(
                     "❮", callback_data="{}_prev({})".format(prefix, modulo_page)
                 ),
-                EqInlineKeyboardButton("Back", callback_data="help_back"),
+                EqInlineKeyboardButton("Back", callback_data="Shikimori_back"),
                 EqInlineKeyboardButton(
                     "❯", callback_data="{}_next({})".format(prefix, modulo_page)
                 ),
             )
         ]
 
-    else:
-        pairs += [[EqInlineKeyboardButton("• ʙᴀᴄᴋ •", callback_data="Shikimori_back")]]
-
     return pairs
-
 
 def article(
     title: str = "",
