@@ -9,22 +9,22 @@ set_chat_lang: "Great, using {} Language it is from now on!"
 
 # PM Text
 pm_start_text: |
-  ────「 ʏᴏʀ ғᴏʀɢᴇʀ 」────
+  ────「 [sʜɪᴋɪᴍᴏʀɪ ᴍɪᴄᴄʜᴏɴ](https://telegra.ph/file/271e1ef391ad4036e7a4b.mp4)」────
   やあ Kon'ichiwa {} - San!   
-  I'm Yor Forger An Anime Themed Powerful & Advanced Group Management Robot 
+  ♡ I'm Shikimori Micchon An Anime Themed Powerful & Advanced Group Management Robot 
   ───────────────────────
-  ◈  Server Uptime :- `{}`             
-  ◈  `{}` Users, Across `{}` Chats.  
+  ♡  Server Uptime :- `{}`             
+  ♡  `{}` Users, Across `{}` Chats.  
   ───────────────────────
-  ➢ Try The Help Buttons Below To Know My Abilities.
+  ♡ Try The Help Buttons Below To Know My Abilities ♡
    
 group_start_text: |
-  Kon'ichiwa Minna, Am still alive protecting youu from the evil[💕]
+  ♡♡ やあ Kon'ichiwa Minna-San, Am Shikimori Micchan and I'll protect you from everything [♡♡](https://telegra.ph/file/271e1ef391ad4036e7a4b.mp4)
   
-  Active Since : `{}`
+  Am Alive Since :- `{}`
 
 pm_about_text: |
-  ♥ Hoi I'm *Yor Forger*, a powerful group management bot built to help you manage your group easily. ♥ 
+  ♥ Hey Darling I'm *Shikimori Micchon*, a powerful group management bot built to help you manage your group easily. ♥ 
 
   ♡ I can restrict users.
   ♡ I can greet users with customizable welcome messages and even set a group's rules.
@@ -33,11 +33,12 @@ pm_about_text: |
   ♡ I have a note keeping system, blacklists, and even predetermined replies on certain keywords.
   ♡ I check for admins' permissions before executing any command and more stuffs
 
-
+  _Shikimori licensed under the GNU General Public License v3.0_
+  Click on button bellow to get basic help for Shikimori Micchon Robot.
 pm_about_admin_text: |
   *♥ Let's make your group bit effective now ♥*
 
-  Congragulations, Yor Robot now ready to manage your group.
+  Congragulations, Shikimori Micchon Robot now ready to manage your group.
 
   *Admin Tools*
   Basic Admin tools help you to protect and powerup your group.
@@ -52,20 +53,20 @@ pm_about_notes_text: |
   ♡ You can save message/media/audio or anything as notes to get a note simply use # at the beginning of a word
   ♡ You can also set buttons for notes and filters (refer help menu)
 pm_about_support_text: |
-  *♥  Yor Robot support chats ♥*
+  *♥  Shikimori Micchon Robot support chats ♥*
 
   Join My Support Group/Channel for see or report a problem on Shikimori Support.
 pm_about_credit_text: |
-  *♥ Credis for Yor Forger ♥*
+  *♥ Credis for Shikimori Micchon ♥*
 
-  Here Developers Making And Give Inspiration For Made The Yor Robot
+  Here Developers Making And Give Inspiration For Made The Shikimori Robot
 pm_help_text: |
   *♥ Click on the button bellow to get description about specifics command. ♥*
   
   If You Face Any Problems Please Report It To Our Support Group.
 pm_help_module_text: |
   [*♥ Click on the button bellow to get description about specifics command. ♥*
-  If You Face Any Problems Please Report It To Our Support Group.](https://t.me/jinwooXsupport) 
+  If You Face Any Problems Please Report It To Our Support Group.](https://t.me/shikimoriXsupport) 
   
 # Group Help Text
 group_help_text: "Contact me in PM to get the list of possible commands."
@@ -84,7 +85,7 @@ group_settings_text: "ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ɢᴇᴛ ᴛʜɪs ᴄʜᴀ
 group_settings_button: "sᴇᴛᴛɪɴɢs"
 
 # PM Button
-add_bot_to_group_button: "♡ ᴀᴅᴅ ʏᴏʀ ᴛᴏ ɢʀᴏᴜᴘ ♡"
+add_bot_to_group_button: "♡ ᴀᴅᴅ ꜱʜɪᴋɪᴍᴏʀɪ ᴛᴏ ɢʀᴏᴜᴘ ♡"
 
 
 support_chat_link_button: "ꜱᴜᴘᴘᴏʀᴛ"
@@ -94,9 +95,9 @@ notes_button: "ɴᴏᴛᴇs"
 
 help_button: "ʜᴇʟᴘ"
 back_button: "ʙᴀᴄᴋ"
+about_button: "♡ ᴀʙᴏᴜᴛ sʜɪᴋɪᴍᴏʀɪ ᴍɪᴄᴄʜᴏɴ ♡"
 chat_grp_button: "ᴄʜᴀᴛ ɢʀᴏᴜᴘ"
 darling_button: "ᴅᴀʀʟɪɴɢ"
-more_button: "ᴍᴏʀᴇ"
 
 # MODULES
 admin_help: |
