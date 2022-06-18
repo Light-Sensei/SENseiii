@@ -4,7 +4,6 @@ import time
 
 import SiestaRobot.modules.fun_strings as fun_strings
 from SiestaRobot import dispatcher
-from SiestaRobot import DRAGONS
 from SiestaRobot.modules.disable import DisableAbleCommandHandler
 from SiestaRobot.modules.helper_funcs.chat_status import is_user_admin
 from SiestaRobot.modules.helper_funcs.extraction import extract_user
@@ -317,11 +316,9 @@ def weebify(update: Update, context: CallbackContext):
 def helps(chat):
     return gs(chat, "fun_help")
 
-
 SANITIZE_HANDLER = DisableAbleCommandHandler("sanitize", sanitize, run_async=True)
 RUNS_HANDLER = DisableAbleCommandHandler("runs", runs, run_async=True)
 SLAP_HANDLER = DisableAbleCommandHandler("slap", slap, run_async=True)
-FLIRT_HANDLER = DisableAbleCommandHandler("flirt", flirt,run_async=True) 
 PAT_HANDLER = DisableAbleCommandHandler("pat", pat, run_async=True)
 ROLL_HANDLER = DisableAbleCommandHandler("roll", roll, run_async=True)
 TOSS_HANDLER = DisableAbleCommandHandler("toss", toss, run_async=True)
@@ -336,9 +333,8 @@ WEEBIFY_HANDLER = DisableAbleCommandHandler("weebify", weebify, run_async=True)
 
 dispatcher.add_handler(WEEBIFY_HANDLER)
 dispatcher.add_handler(SHOUT_HANDLER)
-dispatcher.add_handler(SANITIZE_HANDLER) 
+dispatcher.add_handler(SANITIZE_HANDLER)
 dispatcher.add_handler(RUNS_HANDLER)
-dispatcher.add_handler(FLIRT_HANDLER)
 dispatcher.add_handler(SLAP_HANDLER)
 dispatcher.add_handler(PAT_HANDLER)
 dispatcher.add_handler(ROLL_HANDLER)
@@ -347,14 +343,12 @@ dispatcher.add_handler(SHRUG_HANDLER)
 dispatcher.add_handler(BLUETEXT_HANDLER)
 dispatcher.add_handler(RLG_HANDLER)
 dispatcher.add_handler(DECIDE_HANDLER)
-dispatcher.add_handler(ROMANCE_HANDLER)
 dispatcher.add_handler(EIGHTBALL_HANDLER)
 dispatcher.add_handler(TABLE_HANDLER)
 
 __mod_name__ = "Fun"
 __command_list__ = [
     "runs",
-    "sex",
     "slap",
     "roll",
     "toss",
@@ -363,16 +357,11 @@ __command_list__ = [
     "rlg",
     "decide",
     "table",
-    "gbam",
-    "flirt",
-    "romance",
     "pat",
     "sanitize",
     "shout",
     "weebify",
     "8ball",
-    "uwu",
-    "owo",
 ]
 __handlers__ = [
     RUNS_HANDLER,
@@ -381,16 +370,12 @@ __handlers__ = [
     ROLL_HANDLER,
     TOSS_HANDLER,
     SHRUG_HANDLER,
-    OWO_HANDLER,
-    UWU_HANDLER,
     BLUETEXT_HANDLER,
     RLG_HANDLER,
     DECIDE_HANDLER,
     TABLE_HANDLER,
-    FLIRT_HANDLER,
     SANITIZE_HANDLER,
     SHOUT_HANDLER,
-    ROMANCE_HANDLER,
     WEEBIFY_HANDLER,
     EIGHTBALL_HANDLER,
 ]
