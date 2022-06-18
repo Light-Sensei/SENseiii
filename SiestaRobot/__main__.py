@@ -2,6 +2,7 @@ import html
 import os
 import json
 import importlib
+import random
 import time
 import re
 import sys
@@ -37,6 +38,7 @@ from SiestaRobot import (
 from SiestaRobot.modules import ALL_MODULES
 from SiestaRobot.modules.helper_funcs.chat_status import is_user_admin
 from SiestaRobot.modules.helper_funcs.misc import paginate_modules
+from SiestaRobot.scrips import SENSEI_PIC
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
 from telegram.error import (
     BadRequest,
@@ -200,8 +202,9 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                text=gs(chat.id, "pm_start_text").format(
+            update.effective_message.reply_photo(
+                random.choice(SENSEI_PIC),
+                caption=gs(chat.id, "pm_start_text").format(
                     escape_markdown(first_name),
                     escape_markdown(uptime),
                     sql.num_users(),
@@ -209,16 +212,16 @@ def start(update: Update, context: CallbackContext):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "about_button"), callback_data="siesta_"),
+                            InlineKeyboardButton(text=gs(chat.id, "About"), callback_data="siesta_"),
                         ],
                         [
-                            InlineKeyboardButton(text=gs(chat.id, "help_button"), callback_data="help_back"),
-                            InlineKeyboardButton(text=gs(chat.id, "darling_button"), url="t.me/Itz_Light_Yagami"),
-                            InlineKeyboardButton(text=gs(chat.id, "chat_grp_button"), url="t.me/night_raiderss"),
+                            InlineKeyboardButton(text=gs(chat.id, "Help"), callback_data="help_back"),
+                            InlineKeyboardButton(text=gs(chat.id, "Tomozaki"), url="t.me/tomozki"),
+                            InlineKeyboardButton(text=gs(chat.id, "Chat Group"), url="t.me/..."),
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_button"), url="t.me/shikimoriXrobot?startgroup=new"),
+                                text=gs(chat.id, "add_bot_to_group_button"), url="t.me/{BOT_USERNAME}?startgroup=new"),
                         ]
                     ]
                 ),
